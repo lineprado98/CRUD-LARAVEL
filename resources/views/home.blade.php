@@ -1,2 +1,3 @@
-<h1>
-Oláá</h1>
+@include('sidebar')
+
+<h1>Home</h1>
