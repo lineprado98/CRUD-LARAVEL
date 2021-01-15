@@ -1,0 +1,55 @@
+#principal {
+  position: fixed;
+  /* float: left; */
+  width: 200px;
+  height: 100%;
+  /* background: black; */
+  border-right: 1px solid #e9e9e9;
+  box-shadow: 0 0 15px rgba(0, 0, 0.15);
+}
+
+#principal ul,
+ul li {
+  float: left;
+  width: 100%;
+  list-style: none;
+  padding-inline-start: 5px;
+}
+
+#principal ul li a {
+  float: left;
+  width: 100%;
+  height: 65px;
+  border-bottom: 1px solid #e9e9e9;
+}
+#principal ul li a i {
+  float: left;
+  /* height: 80px;
+  width: 80px; */
+}
+#principal ul li a h3 {
+  float: left;
+  height: 80px;
+  width: 80px;
+}
+
+#principal ul li:hover {
+  color: rgb(189, 182, 173);
+}
+
+.painel {
+  margin-left: 20%;
+  max-width: 63%;
+}
+
+.painel .pagination {
+  display: flex !important;
+}
+
+body {
+  background: #fafafa;
+}
+
+a {
+  text-decoration: none;
+}

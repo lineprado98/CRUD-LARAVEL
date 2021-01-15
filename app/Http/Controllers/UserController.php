@@ -16,8 +16,7 @@ class UserController extends Controller
     public function index()
     {
 
-
-        $usuarios =User::all();
+        $usuarios = User::all();
 
 
           return view('users.index', compact('usuarios'));
@@ -30,38 +29,24 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
+        $validation = $request->validate([
+            'name'=>['required'],
+            'email'=>['required']
+        ]);
 
 
         User::create([
-            'name'=>$request->nome,
+            'name'=>$request->name,
             'email'=>$request->email
             ]);
-        return redirect()->route('list');
+
+        return redirect()->back()->with('status','User created with success');
+        // return redirect()->route('list');
 
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -106,6 +91,7 @@ class UserController extends Controller
      */
     public function delete($id)
     {
+
       User::where('id',$id)->delete();
       return redirect()->route('list');
     }

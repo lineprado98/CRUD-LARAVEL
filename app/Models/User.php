@@ -10,11 +10,18 @@ class User extends Model
     public $table = 'user';
     use HasFactory;
 
-    protected $fillable  = [
+    public $fillable  = [
         "id",
         "name",
         "email",
         ];
 
 
+        public function end()
+        {
+            return $this->hasOne('App\Models\Address', 'id', 'id_address');
+        }
+
 }
+
+
