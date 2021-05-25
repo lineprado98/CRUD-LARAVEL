@@ -14,6 +14,8 @@ class User extends Model
         "id",
         "name",
         "email",
+        "cpf",
+        "token"
         ];
 
 

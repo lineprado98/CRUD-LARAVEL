@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,15 +29,27 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
+
         $validation = $request->validate([
             'name'=>['required'],
-            'email'=>['required']
-        ]);
+            'email'=>['required'],
+             'cpf' => 'required|cpf'
+
+        ],
+       ['cpf' => ':attribute  field is not valid']);
+       $cpf = preg_replace("/[^0-9]/",'', $request->cpf);
+
+
+        // Validator::make($valor, $regras, ['celular_com_ddd' => 'O campo :attribute não é um celular'])
+
+
 
 
         User::create([
             'name'=>$request->name,
-            'email'=>$request->email
+            'email'=>$request->email,
+            'cpf' => $request->cpf
+
             ]);
 
         return redirect()->back()->with('status','User created with success');

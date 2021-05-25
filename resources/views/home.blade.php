@@ -2,10 +2,11 @@
 
 @extends('layouts.app')
 
+
 @section('content')
 
             <h1>Home</h1>
-            <h3>Register users per month</h3>
+            <h3>Registers per month</h3>
                 <canvas class="graph" id="graph-users"></canvas>
             </div>
 
